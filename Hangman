@@ -1,0 +1,78 @@
+import urllib.request
+
+
+word_url = "http://svnweb.freebsd.org/csrg/share/dict/words?view=co&content-type=text/plain"
+response = urllib.request.urlopen(word_url)
+long_txt = response.read().decode()
+words = long_txt.splitlines()
+import random 
+word = random.choice(words)
+print (word)
+print ("Guess the word")
+print ("Try to find a letter...")
+letters = []
+mid_letters = [] #the list will contain letters without first and last
+
+for letter in word:    
+   letters.append(letter) #append letters of the word in a list
+   mid_letters.append(letter) #append letters of the word in a another list
+   #guess_letters.append(letter)
+
+mid_letters.remove(letters[0]) #remove first letter
+mid_letters.remove(letters[len(word)-1]) #remove last letter
+print (mid_letters)  
+
+guesses = ' '
+    
+
+
+#start guessing
+turns = 5
+while turns > 0:
+    final = 0
+    
+    
+
+    print (letters[0], end="")   #print first letter 
+    for char in mid_letters:
+        
+        if char in guesses:
+            print (char, end="")
+          
+            
+        else: 
+            print (".", end="")
+            final =+1
+    print (letters[len(word)-1])  #print last letter         
+    if final == 0:
+        print ("you won") 
+        break
+
+    guess_letter = input("Guess a letter ")
+    guesses += guess_letter
+
+    if guess_letter not in mid_letters:
+        turns -=1
+        print ("this is wrong")
+        if turns ==0:
+            print ("You lose")
+          
+        
+    
+                    
+    
+    
+
+      
+    
+    
+   
+    
+
+
+    
+
+
+
+
+
