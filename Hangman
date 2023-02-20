@@ -9,7 +9,7 @@ import random
 word = random.choice(words)
 print (word)
 print ("Guess the word")
-print ("Try to find a letter...")
+print ("Try to find a letter......")    
 letters = []
 mid_letters = [] #the list will contain letters without first and last
 
